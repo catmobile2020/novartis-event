@@ -53,6 +53,15 @@ class ProfileController extends Controller
      *         type="string",
      *         format="string",
      *         default="mahmoudnada5050@gmail.com",
+     *      ),@SWG\Parameter(
+     *         name="bio",
+     *         in="formData",
+     *         type="string",
+     *         format="string",
+     *      ),@SWG\Parameter(
+     *         name="photo",
+     *         in="formData",
+     *         type="file",
      *      ),
      *      @SWG\Response(response=200, description="token"),
      *      @SWG\Response(response=400, description="Unauthorized"),
@@ -64,6 +73,8 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $user->update($request->all());
+        if ($request->photo)
+            $this->upload($request->photo,$user,null,true);
         return AccountResource::make(auth()->user());
     }
 

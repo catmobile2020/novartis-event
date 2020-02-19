@@ -15,9 +15,14 @@ Route::group(['namespace' => 'Api'] ,function (){
         });
 
 
+        Route::get('/events','EventController@index');
+        Route::post('/events/{event}/attendance','EventController@attendance');
         Route::get('/agenda','HomeController@agenda');
+        Route::get('/speakers','HomeController@speakers');
+        Route::get('/speakers/{speaker}','HomeController@singleSpeaker');
         Route::apiResource('/questions','QuestionController');
         Route::apiResource('/polls','VotingController');
     });
+    Route::get('/setting','HomeController@setting');
 
 });

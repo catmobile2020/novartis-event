@@ -4,6 +4,10 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -37,15 +41,38 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if (!$request->expectsJson())
+        {
+            return  redirect()->guest(route('admin.login'));
+        }
+        $result = [
+            'type' => request()->fullUrl(),
+            'title' => 'Unauthenticated.',
+        ];
+        throw new HttpResponseException(response()->json($result , 401));
+    }
+
     /**
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Exception
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ModelNotFoundException && $request->wantsJson()) {
+            $result = [
+                'type' => request()->fullUrl(),
+                'title' => 'Resource not found',
+            ];
+            throw new HttpResponseException(response()->json($result , 404));
+        }
         return parent::render($request, $exception);
     }
+
 }

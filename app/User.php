@@ -15,7 +15,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable=['name','email','password','active','type'];
+    protected $fillable=['name','email','password','active','bio','type'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -25,6 +25,8 @@ class User extends Authenticatable implements JWTSubject
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    protected $appends=['photo'];
 
     /**
      * The attributes that should be cast to native types.
@@ -56,10 +58,37 @@ class User extends Authenticatable implements JWTSubject
     }
 
 
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'imageable')->withDefault([
+            'url'=>'assets/admin/images/default-avatar.png'
+        ]);
+    }
+    public function getPhotoAttribute()
+    {
+        return $this->image->full_url;
+    }
+
+    public function trash()
+    {
+        $photo = public_path().$this->image->url;
+        if (is_file($photo))
+        {
+            @unlink($photo);
+            $this->image()->delete();
+        }
+        $this->delete();
+    }
+
 
     public function scopeActive($q)
     {
         $q->where('active',1);
+    }
+
+    public function scopeOnlySpeakers($q)
+    {
+        $q->where('type',2);
     }
 
     public function questions()
@@ -71,5 +100,6 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(UserPolls::class);
     }
+
 
 }

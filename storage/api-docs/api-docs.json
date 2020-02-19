@@ -53,7 +53,7 @@
                     "401": {
                         "description": "Unauthorized"
                     },
-                    "402": {
+                    "422": {
                         "description": "Validation Error"
                     },
                     "403": {
@@ -166,6 +166,137 @@
                 ]
             }
         },
+        "/events": {
+            "get": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "get all events paginated",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/events/{event}/attendance": {
+            "post": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "submit your attendance",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attended",
+                        "in": "formData",
+                        "description": "1=> yes 0=> no",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/setting": {
+            "get": {
+                "tags": [
+                    "setting"
+                ],
+                "summary": "get setting details",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/agenda": {
+            "get": {
+                "tags": [
+                    "Agenda"
+                ],
+                "summary": "get Agenda details",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/speakers": {
+            "get": {
+                "tags": [
+                    "speakers"
+                ],
+                "summary": "get speakers paginated",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/speakers/{speaker}": {
+            "get": {
+                "tags": [
+                    "speakers"
+                ],
+                "summary": "get single question",
+                "parameters": [
+                    {
+                        "name": "speaker",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
         "/account/me": {
             "get": {
                 "tags": [
@@ -206,6 +337,17 @@
                         "type": "string",
                         "format": "string",
                         "default": "mahmoudnada5050@gmail.com"
+                    },
+                    {
+                        "name": "bio",
+                        "in": "formData",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "photo",
+                        "in": "formData",
+                        "type": "file"
                     }
                 ],
                 "responses": {
