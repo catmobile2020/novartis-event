@@ -18,6 +18,8 @@ Route::group(['namespace' => 'Api'] ,function (){
         Route::get('/events','EventController@index');
         Route::post('/events/{event}/attendance','EventController@attendance');
         Route::get('/agenda','HomeController@agenda');
+        Route::get('/agenda/{day}','HomeController@singleDay');
+        Route::post('/sessions/{session}/rating','HomeController@submitRate');
         Route::get('/speakers','HomeController@speakers');
         Route::get('/speakers/{speaker}','HomeController@singleSpeaker');
         Route::apiResource('/questions','QuestionController');

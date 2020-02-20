@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Day extends Model
 {
-    protected $fillable=['date'];
+    protected $fillable=['date','active'];
+
+    public function scopeActive($q)
+    {
+        $q->where('active',1);
+    }
 
     public function sessions()
     {

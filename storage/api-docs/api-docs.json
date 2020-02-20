@@ -238,9 +238,73 @@
         "/agenda": {
             "get": {
                 "tags": [
-                    "Agenda"
+                    "agenda"
                 ],
                 "summary": "get Agenda details",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/agenda/{day}": {
+            "get": {
+                "tags": [
+                    "agenda"
+                ],
+                "summary": "get Agenda details",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/sessions/{session}/rating": {
+            "post": {
+                "tags": [
+                    "agenda"
+                ],
+                "summary": "submit your rate",
+                "parameters": [
+                    {
+                        "name": "session",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "rate",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "formData",
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "object"

@@ -17,4 +17,14 @@ class DaySession extends Model
     {
         return $this->hasMany(SessionSpeakers::class);
     }
+
+    public function rates()
+    {
+        return $this->hasMany(SessionRates::class);
+    }
+
+    public function getTotalRateAttribute()
+    {
+        return $this->rates()->count()  ? $this->rates()->sum('rate') / $this->rates()->count() : 'Not Have Rate Yet!';
+    }
 }
