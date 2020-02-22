@@ -68,4 +68,16 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with('message','Done Successfully');
     }
+
+    public function allUsers(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $user = User::find($request->id);
+            $user->update(['type'=>$request->type]);
+            return ['status'=>true];
+        }
+        $rows = User::paginate(20);
+        return view('admin.pages.user.all-user',compact('rows'));
+    }
 }

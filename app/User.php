@@ -101,5 +101,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(UserPolls::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 
 }

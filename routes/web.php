@@ -17,6 +17,7 @@ Route::group(['prefix'=>'/','namespace'=>'Admin','as'=>'admin.'],function (){
         Route::post('/profile','ProfileController@update')->name('profile.update');
         Route::resource('users','UserController');
         Route::get('users/{user}/destroy','UserController@destroy')->name('users.destroy');
+        Route::get('users/all/types','UserController@allUsers')->name('allUsers.all');
 
         Route::resource('events','EventController');
         Route::get('events/{event}/destroy','EventController@destroy')->name('events.destroy');

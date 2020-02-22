@@ -2,6 +2,10 @@
 
 @section('title','Users')
 
+@section('css')
+    <link href="{{asset('assets/admin/css/plugins/summernote/summernote.css')}}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="main-content">
         <!-- Breadcrumb -->
@@ -74,21 +78,21 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="bio">BIO</label>
-                                    <textarea name="bio" rows="6" class="form-control" id="bio" placeholder="bio">{{$user->bio}}</textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
                                     <label for="photo">Photo</label>
                                     <input type="file" name="photo" class="form-control" id="photo">
                                 </div>
                             </div>
                             @isset($user->id)
-                                <div class="col-lg-3">
+                                <div class="col-lg-6">
                                     <img src="{{$user->photo}}" style="height: 200px;width: auto">
                                 </div>
                             @endisset
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="summernote">BIO</label>
+                                    <textarea name="bio" class="form-control ui-helper-hidden-accessible" id="summernote" >{!! $user->bio !!}</textarea>
+                                </div>
+                            </div>
                             <div class="col-sm-8 col-sm-offset-4">
                                 <a href="{{route('admin.users.index')}}" class="btn btn-white">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -99,4 +103,36 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <!--Summernote Editor-->
+    <script src="{{asset('assets/admin/js/plugins/summernote/summernote.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['fontsize', 'bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['color', ['color']],
+                    ['para', ['style', 'ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['Misc', ['fullscreen', 'codeview', 'undo', 'redo']],
+                    ['insert', ['table', 'hr']]
+                ],
+                height: 260,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true                  // set focus to editable area after initializing summernote
+            });
+
+            $('.ui-helper-hidden-accessible').hide();
+
+
+        });
+
+
+
+    </script>
 @endsection

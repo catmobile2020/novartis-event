@@ -24,6 +24,8 @@ Route::group(['namespace' => 'Api'] ,function (){
         Route::get('/speakers/{speaker}','HomeController@singleSpeaker');
         Route::apiResource('/questions','QuestionController');
         Route::apiResource('/polls','VotingController');
+        Route::apiResource('/posts','PostController')->only('index','store','show');
+        Route::post('/posts/{post}/make-comment','PostController@makeComment');
     });
     Route::get('/setting','HomeController@setting');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\VotingEvent;
 use App\Http\Requests\Api\UserPollRequest;
 use App\Http\Resources\PollResource;
 use App\Http\Resources\PollsResource;
@@ -90,6 +91,7 @@ class VotingController extends Controller
         ]);
         if ($vot)
         {
+            event(new  VotingEvent());
             return $this->responseJson('Send Successfully',200);
         }
         return $this->responseJson('Error Happen, Try Again!',400);

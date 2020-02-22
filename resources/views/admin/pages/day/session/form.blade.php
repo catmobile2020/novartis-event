@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     @foreach($speakers as $speaker)
-                                        <div class="col-lg-2">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label for="speaker_id_{{$speaker->id}}">{{$speaker->name}}</label>
                                                 <input {{in_array($speaker->id,$session->speakers()->pluck('user_id')->toArray()) ? 'checked' : ''}} type="checkbox" name="speaker_id[]" class="form-control" id="speaker_id_{{$speaker->id}}" value="{{$speaker->id}}">

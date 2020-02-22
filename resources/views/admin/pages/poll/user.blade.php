@@ -32,6 +32,23 @@
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('d6827af667bcd97eda46', {
+            cluster: 'eu',
+            forceTLS: true
+        });
+
+        var channel = pusher.subscribe('voting');
+        channel.bind('VotingEvent', function(data) {
+            window.location.reload();
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -44,23 +61,21 @@
         </ol>
         <div class="row">
             <div class="col-lg-12">
+                @foreach($poll->options as $option)
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-lg-6">{{$option->option}}</div>
+                            <div class="col-lg-6 text-right">
+                                {{$poll->userPolls()->count() ? '('.$option->userPolls()->count() .' users ) '.($option->userPolls()->count() / $poll->userPolls()->count()) * 100 : 0}}%
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="col-lg-4">
-                            @foreach($poll->options as $option)
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">{{$option->option}}</div>
-                                        <div class="col-lg-6 text-right">
-                                            {{$poll->userPolls()->count() ? '('.$option->userPolls()->count() .' users ) '.($option->userPolls()->count() / $poll->userPolls()->count()) * 100 : 0}}%
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="col-lg-8">
-                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                        </div>
+                        <div id="chartContainer" style="height: 500px; width: 100%;"></div>
                     </div>
                 </div>
             </div>

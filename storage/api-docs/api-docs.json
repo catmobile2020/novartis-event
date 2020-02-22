@@ -361,6 +361,111 @@
                 ]
             }
         },
+        "/posts": {
+            "get": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "get all posts paginated",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "store post",
+                "parameters": [
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "photo",
+                        "in": "formData",
+                        "type": "file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/posts/{post}": {
+            "get": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "get single post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/posts/{post}/make-comment": {
+            "post": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "store comment to post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
         "/account/me": {
             "get": {
                 "tags": [

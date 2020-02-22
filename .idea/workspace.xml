@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a161a3-d37e-4670-bff1-4d32d8ab4859" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/novartis-event.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/novartis-event.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Day.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Day.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DaySession.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DaySession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/EventUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/EventUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_19_093248_create_days_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_19_093248_create_days_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/admin/images/default-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/VotingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/VotingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/day/session/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/day/session/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/poll/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/poll/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/poll/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/poll/user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/user/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/user/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/api-docs/api-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/api-docs/api-docs.json" afterDir="false" />
@@ -134,13 +141,15 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XykFErK5eKbgi8I4exrF55EmFU" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/pages/day" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/pages/user" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -155,11 +164,11 @@
       <recent name="$PROJECT_DIR$/resources/views/admin/pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\novartis-event\resources\views\admin\pages\user" />
+      <recent name="C:\xampp\htdocs\novartis-event" />
       <recent name="$PROJECT_DIR$/resources/views/admin/pages/day" />
       <recent name="$PROJECT_DIR$/resources/views/admin/pages" />
       <recent name="$PROJECT_DIR$/resources/views/admin/pages/setting" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/pages/event" />
-      <recent name="$PROJECT_DIR$/app/Http/Middleware" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -192,6 +201,9 @@
       <updated>1582025617385</updated>
       <workItem from="1582025625771" duration="7796000" />
       <workItem from="1582099047813" duration="29108000" />
+      <workItem from="1582325209604" duration="6117000" />
+      <workItem from="1582388788887" duration="203000" />
+      <workItem from="1582404165700" duration="4288000" />
     </task>
     <servers />
   </component>
@@ -203,7 +215,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -49,7 +49,7 @@
 <body class="login-page">
 <div class="login-container">
     <div class="login-branding">
-
+        <img src="{{asset('assets/admin/images/logo.png')}}" title="imaging atelier" width="300">
     </div>
     <div class="login-content">
         @if ($errors->any())

@@ -5,7 +5,7 @@
     <header class="site-header">
         <div class="site-logo">
             <a href="{{route('admin.home')}}">
-                <h2>imaging atelier</h2>
+                <img src="{{asset('assets/admin/images/logo.png')}}" title="imaging atelier" width="150">
             </a>
         </div>
         <div class="sidebar-collapse hidden-xs"><a class="sidebar-collapse-icon" href="#"><i class="icon-menu"></i></a></div>
@@ -40,6 +40,11 @@
         <li class="{{Route::is('admin.polls.*') ? 'active' : ''}}">
             <a href="{{route('admin.polls.index')}}">
                 <i class="fa fa-pie-chart"></i><span class="title">Voting</span>
+            </a>
+        </li>
+        <li class="{{Route::is('admin.allUsers.all') ? 'active' : ''}}">
+            <a href="{{route('admin.allUsers.all')}}">
+                <i class="fa fa-users"></i><span class="title">All Users</span>
             </a>
         </li>
         <li class="{{Route::is('admin.settings.*') ? 'active' : ''}}">
