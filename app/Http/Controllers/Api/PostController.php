@@ -21,13 +21,17 @@ class PostController extends Controller
      *      summary="get all posts paginated",
      *      security={
      *          {"jwt": {}}
-     *      },
+     *      },@SWG\Parameter(
+     *         name="per_page",
+     *         in="query",
+     *         type="integer",
+     *      ),
      *      @SWG\Response(response=200, description="object"),
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rows = Post::with('comments')->paginate(10);
+        $rows = Post::with('comments')->latest()->paginate($request->per_page ?:10);
         return PostsResource::collection($rows);
     }
 
