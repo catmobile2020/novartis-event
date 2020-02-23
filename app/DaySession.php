@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DaySession extends Model
 {
-    protected $fillable =['title','location','time_from','time_to','day_id'];
+    protected $fillable =['title','desc','location','time_from','time_to','day_id'];
 
     public function day()
     {

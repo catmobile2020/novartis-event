@@ -16,7 +16,8 @@ class CreateDaySessionsTable extends Migration
         Schema::create('day_sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('title');
-            $table->text('location');
+            $table->longText('desc')->nullable();
+            $table->text('location')->nullable();
             $table->time('time_from');
             $table->time('time_to');
             $table->unsignedBigInteger('day_id')->index();

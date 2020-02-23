@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        DouglasResende\FCM\NotificationServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -15,6 +15,7 @@ Route::group(['namespace' => 'Api'] ,function (){
         });
 
 
+        Route::get('/notifications','ProfileController@allNotifications');
         Route::get('/events','EventController@index');
         Route::post('/events/{event}/attendance','EventController@attendance');
         Route::get('/agenda','HomeController@agenda');

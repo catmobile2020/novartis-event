@@ -367,6 +367,13 @@
                     "posts"
                 ],
                 "summary": "get all posts paginated",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "type": "integer"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "object"
@@ -562,6 +569,24 @@
                     },
                     "400": {
                         "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/notifications": {
+            "get": {
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "Get all tips notifications paginate 10 per page",
+                "responses": {
+                    "200": {
+                        "description": "objects"
                     }
                 },
                 "security": [

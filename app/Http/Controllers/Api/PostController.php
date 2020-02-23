@@ -6,9 +6,12 @@ use App\Helpers\UploadImage;
 use App\Http\Requests\Api\CommentRequest;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostsResource;
+use App\Notifications\SendStatusNotification;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 
 class PostController extends Controller
 {
@@ -93,6 +96,13 @@ class PostController extends Controller
         $post = $user->posts()->create($request->all());
         if ($request->photo)
             $this->upload($request->photo,$post);
+
+        $notifyData=[
+            'title'=>'New Post',
+            'message'=>$post->content,
+            'type'=>'post',
+        ];
+        Notification::send(User::whereIn('type',[2,3])->get(),new SendStatusNotification($notifyData));
         return $this->responseJson('Send Successfully',200);
     }
 

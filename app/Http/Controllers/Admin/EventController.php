@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Event;
 use App\Http\Requests\Admin\EventRequest;
+use App\Notifications\SendStatusNotification;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 
 class EventController extends Controller
 {
@@ -44,8 +47,18 @@ class EventController extends Controller
 
     public function update(EventRequest $request, Event $event)
     {
+        $old_status = $event->active;
         $inputs = $request->all();
         $event->update($inputs);
+        if ($old_status == 0 and $request->active == 1)
+        {
+            $notifyData=[
+                'title'=>'New Event',
+                'message'=>$event->date,
+                'type'=>'event',
+            ];
+            Notification::send(User::whereIn('type',[2,3])->get(),new SendStatusNotification($notifyData));
+        }
         return redirect()->back()->with('message','Done Successfully');
     }
 

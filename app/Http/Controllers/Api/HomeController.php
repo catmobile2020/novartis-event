@@ -72,7 +72,11 @@ class HomeController extends Controller
      */
     public function singleDay(Day $day)
     {
-        return AgendaResource::make($day);
+        $dataArray = [
+            'day'=>AgendaResource::make($day),
+            'num_of_days'=>Day::with('sessions')->active()->count(),
+        ];
+        return response()->json($dataArray , 200);
     }
 
     /**
@@ -168,5 +172,7 @@ class HomeController extends Controller
     {
         return AccountResource::make($speaker);
     }
+
+
 
 }

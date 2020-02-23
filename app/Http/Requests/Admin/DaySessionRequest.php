@@ -25,7 +25,6 @@ class DaySessionRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'location' => 'required',
             'time_from' => 'required',
             'time_to' => 'required',
         ];

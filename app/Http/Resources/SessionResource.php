@@ -17,6 +17,7 @@ class SessionResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'desc' => $this->desc,
             'location' => $this->location,
             'time_from' => $this->time_from,
             'time_to' => $this->time_to,

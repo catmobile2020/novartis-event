@@ -31,12 +31,12 @@ class RegisterRequest extends FormRequest
 
         if ($this->routeIs('api.account.update'))
         {
-            $roles['email'] = "required|unique:users,email,{$this->user()->id}";
+            $roles['email'] = "required|email|unique:users,email,{$this->user()->id}";
         }
 
         if ($this->routeIs('api.register'))
         {
-            $roles['email'] = "required|unique:users,email";
+            $roles['email'] = "required|email|unique:users,email";
             $roles['password'] = 'required|min:6';
         }
         return  $roles;

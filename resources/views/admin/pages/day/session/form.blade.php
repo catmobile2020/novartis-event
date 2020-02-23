@@ -2,6 +2,10 @@
 
 @section('title','Sessions')
 
+@section('css')
+    <link href="{{asset('assets/admin/css/plugins/summernote/summernote.css')}}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="main-content">
         <!-- Breadcrumb -->
@@ -39,10 +43,16 @@
                             @isset($session->id)
                                 @method('PUT')
                             @endisset
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="title">title</label>
                                     <input type="text" name="title" class="form-control" id="title" placeholder="title" value="{{$session->title}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="title">Description</label>
+                                    <textarea name="desc" class="form-control ui-helper-hidden-accessible" id="summernote" >{!! $session->desc !!}</textarea>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -88,4 +98,35 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <!--Summernote Editor-->
+    <script src="{{asset('assets/admin/js/plugins/summernote/summernote.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['fontsize', 'bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['color', ['color']],
+                    ['para', ['style', 'ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['Misc', ['fullscreen', 'codeview', 'undo', 'redo']],
+                    ['insert', ['table', 'hr']]
+                ],
+                height: 260,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true                  // set focus to editable area after initializing summernote
+            });
+
+            $('.ui-helper-hidden-accessible').hide();
+
+
+        });
+
+
+
+    </script>
 @endsection

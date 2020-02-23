@@ -6,6 +6,7 @@ use App\Helpers\UploadImage;
 use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Resources\AccountResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NotificationResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -121,4 +122,23 @@ class ProfileController extends Controller
         }
         return $this->responseJson('error', 'Current Password Wrong',400);
     }
+
+    /**
+     *
+     * @SWG\Get(
+     *      tags={"notifications"},
+     *      path="/notifications",
+     *      summary="Get all tips notifications paginate 10 per page",
+     *      security={
+     *          {"jwt": {}}
+     *      },
+     *      @SWG\Response(response=200, description="objects"),
+     * )
+     */
+    public function allNotifications()
+    {
+        $rows = auth()->user()->notifications()->latest()->paginate(10);
+        return NotificationResource::collection($rows);
+    }
+
 }
