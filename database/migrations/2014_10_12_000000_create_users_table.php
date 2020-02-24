@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->longText('bio')->nullable();
             $table->tinyInteger('type')->default(3); // 1=> admin   2=>speaker  3=>attendee
             $table->string('password');
+            $table->longText('reset_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

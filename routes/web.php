@@ -40,6 +40,16 @@ Route::group(['prefix'=>'/','namespace'=>'Admin','as'=>'admin.'],function (){
         Route::get('settings','SettingController@index')->name('settings.index');
         Route::post('settings','SettingController@update')->name('settings.update');
 
+        Route::resource('practices','PracticeController');
+        Route::get('practices/{practice}/destroy','PracticeController@destroy')->name('practices.destroy');
+        Route::get('practices/{practice}/users','PracticeController@users')->name('practices.users');
+
+        Route::resource('{practice}/answers','PracticeOptionController');
+        Route::get('{practice}/answers/{answer}/destroy','PracticeOptionController@destroy')->name('answers.destroy');
+
     });
 });
 
+
+Route::get('/change-password/{token}','ChangePasswordController@changePassword')->name('change-password');
+Route::post('/change-password/{token}','ChangePasswordController@updatePassword');

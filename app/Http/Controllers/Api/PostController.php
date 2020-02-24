@@ -99,9 +99,26 @@ class PostController extends Controller
 
         $notifyData=[
             'title'=>'New Post',
-            'message'=>$post->content,
+            'body'=>$post->content,
             'type'=>'post',
         ];
+
+        $beamsClient = new \Pusher\PushNotifications\PushNotifications(array(
+            "instanceId" => "e3261a40-f1c1-4a9d-b568-4da52ee960ec",
+            "secretKey" => "18DEC2C7A3EE24641D7C5AE81398FC5E8A0CCD9E1534379B23308C0457B702FC",
+        ));
+
+        $publishResponse = $beamsClient->publishToInterests(
+            array("hello", "debug-hello"),
+            array(
+                "fcm" => array(
+                    "notification" =>$notifyData
+                ),
+                "apns" => array("aps" => array(
+                    "alert" => $notifyData
+                ))
+            ));
+
         Notification::send(User::whereIn('type',[2,3])->get(),new SendStatusNotification($notifyData));
         return $this->responseJson('Send Successfully',200);
     }

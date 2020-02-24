@@ -112,6 +112,43 @@
                 ]
             }
         },
+        "/auth/reset-password": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "reset password",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "format": "string",
+                        "default": "mahmoudnada5050@gmail.com"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Validation Error"
+                    },
+                    "403": {
+                        "description": "Forbidden The client did not have permission to access the requested resource."
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
         "/auth/logout": {
             "post": {
                 "tags": [
@@ -459,6 +496,80 @@
                         "in": "formData",
                         "type": "string",
                         "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/practices": {
+            "get": {
+                "tags": [
+                    "practices"
+                ],
+                "summary": "get all practices",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "practices"
+                ],
+                "summary": "submit your practice",
+                "parameters": [
+                    {
+                        "name": "practice_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "practice_option_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/practices/{practice}": {
+            "get": {
+                "tags": [
+                    "practices"
+                ],
+                "summary": "get single practice",
+                "parameters": [
+                    {
+                        "name": "practice",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
                     }
                 ],
                 "responses": {

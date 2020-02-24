@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AgendaResource extends JsonResource
+class PracticeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,9 +15,10 @@ class AgendaResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'date' => $this->date,
-            'sessions' => SessionResource::collection($this->sessions()->orderBy('time_from')->get()),
+            'id'=>$this->id,
+            'title'=>$this->title,
+            'options'=>OptionResource::collection($this->options),
+            'created_at'=>$this->created_at->format('d/m/Y h:i A'),
         ];
     }
 }

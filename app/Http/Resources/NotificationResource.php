@@ -18,7 +18,7 @@ class NotificationResource extends JsonResource
         $data = [
             'id'=>$this->id,
             'title'=>$this->data['title'],
-            'message'=>$this->data['message'],
+            'message'=>$this->data['body'],
             'type'=>$this->data['type'],
 //            'is_read'=>$this->read_at ? true : false,
             'created_at'=>Carbon::parse($this->created_at)->format('d/m/Y h:i A'),

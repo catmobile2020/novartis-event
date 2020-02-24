@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Api\LoginRequest;
 use App\Http\Requests\Api\RegisterRequest;
+use App\Http\Requests\Api\ResetPasswordRequest;
 use App\Http\Resources\AccountResource;
+use App\Mail\ResetPasswordMail;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -17,7 +20,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+        $this->middleware('auth:api', ['except' => ['login','register','resetPassword']]);
     }
 
     /**
@@ -112,6 +115,50 @@ class AuthController extends Controller
             return $this->responseJson('Your Account Is DisActive By Admin.',401);
         }
         return $this->respondWithToken($token);
+    }
+
+    /**
+     *
+     * @SWG\Post(
+     *      tags={"auth"},
+     *      path="/auth/reset-password",
+     *      summary="reset password",
+     *      security={
+     *          {"jwt": {}}
+     *      },
+     *      @SWG\Parameter(
+     *         name="email",
+     *         in="formData",
+     *         required=true,
+     *         type="string",
+     *         format="string",
+     *         default="mahmoudnada5050@gmail.com",
+     *      ),
+     *      @SWG\Response(response=200, description="token"),
+     *      @SWG\Response(response=401, description="Unauthorized"),
+     *      @SWG\Response(response=402, description="Validation Error"),
+     *      @SWG\Response(response=403, description="Forbidden The client did not have permission to access the requested resource."),
+     * )
+     * @param ResetPasswordRequest $request
+     * @return \Illuminate\Http\JsonResponse|void
+     */
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+        try
+        {
+            if (!$user = User::where('email',$request->email)->first())
+            {
+                return $this->responseJson('No Account With This E-mail Try Again.',400);
+            }
+            $rand_token = md5(rand(000000,999999));
+            $user->update(['reset_token'=>$rand_token]);
+            Mail::to($request->email)->send(new ResetPasswordMail($rand_token));
+            return $this->responseJson('Send Successfully. Check Your E-mail!',200);
+        }catch (\Exception $exception)
+        {
+            return $this->responseJson($exception->getMessage(),400);
+        }
+        return $this->responseJson('Error Happen Try Again!',400);
     }
 
     /**

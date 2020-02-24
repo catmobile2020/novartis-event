@@ -37,6 +37,6 @@ class Controller extends BaseController
             'type' => request()->fullUrl(),
             'title' => $message,
         ];
-        throw new HttpResponseException(response()->json($result , $status));
+        return response()->json($result , $status);
     }
 }

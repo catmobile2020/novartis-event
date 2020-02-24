@@ -6,6 +6,7 @@ Route::group(['namespace' => 'Api'] ,function (){
         Route::post('login', 'AuthController@login');
         Route::post('logout', 'AuthController@logout');
         Route::post('refresh', 'AuthController@refresh');
+        Route::post('reset-password', 'AuthController@resetPassword');
     });
     Route::group(['middleware'=>['auth:api']],function (){
         Route::group(['prefix' => 'account'], function () {
@@ -27,6 +28,8 @@ Route::group(['namespace' => 'Api'] ,function (){
         Route::apiResource('/polls','VotingController');
         Route::apiResource('/posts','PostController')->only('index','store','show');
         Route::post('/posts/{post}/make-comment','PostController@makeComment');
+
+        Route::apiResource('/practices','PracticeController');
     });
     Route::get('/setting','HomeController@setting');
 

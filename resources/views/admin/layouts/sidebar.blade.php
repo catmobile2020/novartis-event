@@ -42,6 +42,11 @@
                 <i class="fa fa-pie-chart"></i><span class="title">Voting</span>
             </a>
         </li>
+        <li class="{{Route::is('admin.practices.*') ? 'active' : ''}}">
+            <a href="{{route('admin.practices.index')}}">
+                <i class="fa fa-edit"></i><span class="title">Clinical Practice</span>
+            </a>
+        </li>
         <li class="{{Route::is('admin.allUsers.all') ? 'active' : ''}}">
             <a href="{{route('admin.allUsers.all')}}">
                 <i class="fa fa-users"></i><span class="title">All Users</span>

@@ -13,7 +13,7 @@ class DaySessionsController extends Controller
 {
     public function index(Day $day)
     {
-        $rows = $day->sessions()->with('rates')->latest()->paginate(20);
+        $rows = $day->sessions()->with('rates')->orderBy('time_from')->paginate(20);
         return view('admin.pages.day.session.index',compact('day','rows'));
     }
 

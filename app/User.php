@@ -15,7 +15,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable=['name','email','password','active','bio','type'];
+    protected $fillable=['name','email','password','active','bio','type','reset_token'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -23,7 +23,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+        'password', 'remember_token', 'reset_token'
     ];
 
     protected $appends=['photo'];
@@ -99,6 +99,11 @@ class User extends Authenticatable implements JWTSubject
     public function polls()
     {
         return $this->hasMany(UserPolls::class);
+    }
+
+    public function practices()
+    {
+        return $this->hasMany(UserPractices::class);
     }
 
     public function posts()

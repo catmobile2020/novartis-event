@@ -31,7 +31,7 @@ class SendStatusNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database','broadcast'];
+        return ['database'];
     }
 
 
@@ -46,10 +46,10 @@ class SendStatusNotification extends Notification
         return $this->data;
     }
 
-    public function toFcm($notifiable)
-    {
-        return (new FirebaseMessage())->setMeta([
-            $this->data
-        ])->setContent($this->data['title'], $this->data['message']);
-    }
+//    public function toFcm($notifiable)
+//    {
+//        return (new FirebaseMessage())->setMeta([
+//            $this->data
+//        ])->setContent($this->data['title'], $this->data['message']);
+//    }
 }
