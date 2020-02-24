@@ -54,7 +54,7 @@ class EventController extends Controller
         {
             $notifyData=[
                 'title'=>'New Event',
-                'message'=>$event->date,
+                'body'=>$event->date,
                 'type'=>'event',
             ];
 
