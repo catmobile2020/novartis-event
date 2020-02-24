@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a161a3-d37e-4670-bff1-4d32d8ab4859" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/update-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/update-password.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +196,7 @@
       <workItem from="1582388788887" duration="203000" />
       <workItem from="1582404165700" duration="5096000" />
       <workItem from="1582414219372" duration="102000" />
-      <workItem from="1582535082371" duration="13076000" />
+      <workItem from="1582535082371" duration="13347000" />
     </task>
     <servers />
   </component>

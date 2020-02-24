@@ -112,29 +112,20 @@
     <div class="alert error">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li class="inner">{{ $error }}</li>
             @endforeach
         </ul>
     </div>
 @endif
 @if (session()->has('message'))
     <div class="alert success">
+        <p class="inner">
         <h4>{{session()->get('message')}}</h4>
+        </p>
     </div>
 @endif
 <form method="post">
     @csrf
-    <div class="alert error">
-        <p class="inner">
-            <strong>Warning!</strong> The alerts are too damn awesome!
-        </p>
-    </div>
-    <div class="alert success">
-        <p class="inner">
-            Your alerts have dismissed successfully.
-        </p>
-    </div>
-
     <span><strong>Reset Password</strong></span>
     <hr>
     <br>
