@@ -23,7 +23,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $rows = Event::paginate(10);
+        $rows = Event::orderBy('date')->paginate(10);
         return EventResource::collection($rows);
     }
 

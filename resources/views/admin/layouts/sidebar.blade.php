@@ -37,6 +37,11 @@
                 <i class="fa fa-pencil"></i><span class="title">Events</span>
             </a>
         </li>
+        <li class="{{Route::is('admin.posts.*') ? 'active' : ''}}">
+            <a href="{{route('admin.posts.index')}}">
+                <i class="fa fa-book"></i><span class="title">Posts</span>
+            </a>
+        </li>
         <li class="{{Route::is('admin.polls.*') ? 'active' : ''}}">
             <a href="{{route('admin.polls.index')}}">
                 <i class="fa fa-pie-chart"></i><span class="title">Voting</span>

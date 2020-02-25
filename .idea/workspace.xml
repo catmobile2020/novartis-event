@@ -2,7 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a161a3-d37e-4670-bff1-4d32d8ab4859" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/update-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/update-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PracticeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PracticeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/EventResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/EventResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/NotificationResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/NotificationResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OptionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OptionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PollResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PollResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PollsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PollsResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PostResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PostResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PostsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PostsResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PracticeResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PracticeResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SessionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/SessionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PracticeOptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PracticeOptions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_19_113114_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_19_113114_create_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/day/session/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/day/session/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/event/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/event/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/practice/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/practice/user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/api-docs/api-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/api-docs/api-docs.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +162,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/pages/post" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -149,17 +173,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/admin/pages" />
-      <recent name="C:\xampp\htdocs\novartis-event\resources\views\admin\pages\user" />
-      <recent name="C:\xampp\htdocs\novartis-event" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/pages/day" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/pages/setting" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/mail" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
       <recent name="$PROJECT_DIR$/resources/views/admin/pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/pages/post" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/pages" />
+      <recent name="C:\xampp\htdocs\novartis-event\resources\views\admin\pages\user" />
+      <recent name="C:\xampp\htdocs\novartis-event" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/pages/day" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -196,7 +220,8 @@
       <workItem from="1582388788887" duration="203000" />
       <workItem from="1582404165700" duration="5096000" />
       <workItem from="1582414219372" duration="102000" />
-      <workItem from="1582535082371" duration="13347000" />
+      <workItem from="1582535082371" duration="13667000" />
+      <workItem from="1582622019643" duration="10343000" />
     </task>
     <servers />
   </component>
@@ -215,16 +240,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/admin/pages/setting.blade.php</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

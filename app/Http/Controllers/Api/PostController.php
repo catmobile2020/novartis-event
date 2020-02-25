@@ -157,4 +157,31 @@ class PostController extends Controller
         ]);
         return $this->responseJson('Send Successfully',200);
     }
+
+    /**
+     *
+     * @SWG\Delete(
+     *      tags={"posts"},
+     *      path="/posts/{post}",
+     *      summary="delete post",
+     *      security={
+     *          {"jwt": {}}
+     *      },@SWG\Parameter(
+     *         name="post",
+     *         in="path",
+     *         required=true,
+     *         type="integer",
+     *      ),
+     *      @SWG\Response(response=200, description="object"),
+     * )
+     * @param Post $post
+     * @param CommentRequest $request
+     * @return void
+     */
+    public function destroy(Post $post)
+    {
+        $post->trash();
+        return $this->responseJson('Done Successfully',200);
+    }
+
 }

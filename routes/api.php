@@ -26,10 +26,11 @@ Route::group(['namespace' => 'Api'] ,function (){
         Route::get('/speakers/{speaker}','HomeController@singleSpeaker');
         Route::apiResource('/questions','QuestionController');
         Route::apiResource('/polls','VotingController');
-        Route::apiResource('/posts','PostController')->only('index','store','show');
+        Route::apiResource('/posts','PostController');
         Route::post('/posts/{post}/make-comment','PostController@makeComment');
 
         Route::apiResource('/practices','PracticeController');
+        Route::post('/practices/options/rating','PracticeController@optionRates');
     });
     Route::get('/setting','HomeController@setting');
 

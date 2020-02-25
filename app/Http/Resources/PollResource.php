@@ -18,7 +18,7 @@ class PollResource extends JsonResource
             'id'=>$this->id,
             'title'=>$this->title,
             'options'=>OptionResource::collection($this->options),
-            'created_at'=>$this->created_at->format('d/m/Y h:i A'),
+            'created_at'=>$this->created_at->format('d-m-Y h:i A'),
         ];
     }
 }

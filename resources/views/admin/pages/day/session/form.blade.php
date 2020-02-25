@@ -55,19 +55,19 @@
                                     <textarea name="desc" class="form-control ui-helper-hidden-accessible" id="summernote" >{!! $session->desc !!}</textarea>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="location">location</label>
                                     <input type="text" name="location" class="form-control" id="location" placeholder="location" value="{{$session->location}}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="time_from">time from</label>
                                     <input type="time" name="time_from" class="form-control" id="time_from" placeholder="time from" value="{{$session->time_from}}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="time_to">time to</label>
                                     <input type="time" name="time_to" class="form-control" id="time_to" placeholder="time to" value="{{$session->time_to}}">

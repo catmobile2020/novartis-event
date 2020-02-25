@@ -20,7 +20,7 @@ class PostsResource extends JsonResource
             'photo'=>$this->photo,
             'num_comments'=>$this->comments()->count(),
             'owner'=>AccountResource::make($this->user),
-            'created_at'=>$this->created_at->format('d/m/Y h:i A'),
+            'created_at'=>$this->created_at->format('d-m-Y h:i A'),
         ];
     }
 }

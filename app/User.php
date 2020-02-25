@@ -111,6 +111,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Post::class);
     }
 
+    public function practiceOptions()
+    {
+        return $this->hasMany(PracticeOptionRates::class);
+    }
+
 
     public function routeNotificationForFcm() {
         return $this->device_token;

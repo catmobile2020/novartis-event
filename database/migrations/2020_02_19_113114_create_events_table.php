@@ -18,6 +18,9 @@ class CreateEventsTable extends Migration
             $table->date('date');
             $table->string('city');
             $table->boolean('active')->default(0);
+            $table->text('address')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->timestamps();
         });
     }

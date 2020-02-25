@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\PracticeOptionRate;
 use App\Http\Requests\Api\UserPracticeRequest;
 use App\Http\Resources\PracticeResource;
 use App\Practice;
 use App\Http\Controllers\Controller;
+use App\PracticeOptions;
 
 class PracticeController extends Controller
 {
@@ -88,6 +90,49 @@ class PracticeController extends Controller
             'practice_id'=>$request->practice_id,
         ]);
         if ($ans)
+        {
+            return $this->responseJson('Send Successfully',200);
+        }
+        return $this->responseJson('Error Happen, Try Again!',400);
+    }
+
+    /**
+     *
+     * @SWG\post(
+     *      tags={"practices"},
+     *      path="/practices/options/rating",
+     *      summary="submit your practice option rate",
+     *      security={
+     *          {"jwt": {}}
+     *      },
+     *      @SWG\Parameter(
+     *         name="practice_option_id",
+     *         in="formData",
+     *         required=true,
+     *         type="integer",
+     *      ),@SWG\Parameter(
+     *         name="rate",
+     *         in="formData",
+     *         required=true,
+     *         type="integer",
+     *      ),
+     *      @SWG\Response(response=200, description="object"),
+     * )
+     * @param PracticeOptionRate $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function optionRates(PracticeOptionRate $request)
+    {
+        $user = auth()->user();
+        if ($user->practiceOptions()->where('practice_options_id',$request->practice_option_id)->first())
+        {
+            return $this->responseJson('You Already Submit this Vot Before.',400);
+        }
+        $rate = $user->practiceOptions()->create([
+            'practice_options_id'=>$request->practice_option_id,
+            'rate'=>$request->rate,
+        ]);
+        if ($rate)
         {
             return $this->responseJson('Send Successfully',200);
         }

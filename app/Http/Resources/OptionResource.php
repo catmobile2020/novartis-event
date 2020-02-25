@@ -17,7 +17,7 @@ class OptionResource extends JsonResource
         return [
             'id'=>$this->id,
             'option'=>$this->option,
-            'created_at'=>$this->created_at->format('d/m/Y h:i A'),
+            'created_at'=>$this->created_at->format('d-m-Y h:i A'),
         ];
     }
 }

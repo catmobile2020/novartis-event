@@ -476,6 +476,30 @@
                         "jwt": []
                     }
                 ]
+            },
+            "delete": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "delete post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
             }
         },
         "/posts/{post}/make-comment": {
@@ -568,6 +592,38 @@
                     {
                         "name": "practice",
                         "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/practices/options/rating": {
+            "post": {
+                "tags": [
+                    "practices"
+                ],
+                "summary": "submit your practice option rate",
+                "parameters": [
+                    {
+                        "name": "practice_option_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "rate",
+                        "in": "formData",
                         "required": true,
                         "type": "integer"
                     }

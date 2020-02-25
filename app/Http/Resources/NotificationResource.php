@@ -21,7 +21,7 @@ class NotificationResource extends JsonResource
             'message'=>$this->data['body'],
             'type'=>$this->data['type'],
 //            'is_read'=>$this->read_at ? true : false,
-            'created_at'=>Carbon::parse($this->created_at)->format('d/m/Y h:i A'),
+            'created_at'=>Carbon::parse($this->created_at)->format('d-m-Y h:i A'),
         ];
         return $data;
     }

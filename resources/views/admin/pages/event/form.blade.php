@@ -60,6 +60,24 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="address">address</label>
+                                    <input type="text" name="address" class="form-control" id="address" placeholder="address" value="{{$event->address}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="lat">lat</label>
+                                    <input type="text" name="lat" class="form-control" id="lat" placeholder="lat" value="{{$event->lat}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="lng">lng</label>
+                                    <input type="text" name="lng" class="form-control" id="lng" placeholder="lng" value="{{$event->lng}}">
+                                </div>
+                            </div>
                             <div class="col-sm-8 col-sm-offset-4">
                                 <a href="{{route('admin.events.index')}}" class="btn btn-white">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>

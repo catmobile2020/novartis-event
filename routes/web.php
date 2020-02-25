@@ -47,6 +47,11 @@ Route::group(['prefix'=>'/','namespace'=>'Admin','as'=>'admin.'],function (){
         Route::resource('{practice}/answers','PracticeOptionController');
         Route::get('{practice}/answers/{answer}/destroy','PracticeOptionController@destroy')->name('answers.destroy');
 
+        Route::get('posts','PostController@index')->name('posts.index');
+        Route::get('posts/{post}/destroy','PostController@destroy')->name('posts.destroy');
+        Route::get('posts/{post}/comments','PostController@comments')->name('posts.comments');
+        Route::get('comments/{comment}/destroy','PostController@destroyComment')->name('posts.destroyComment');
+
     });
 });
 

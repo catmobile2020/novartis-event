@@ -28,4 +28,15 @@ class Post extends Model
     {
         return $this->hasMany(PostComments::class);
     }
+
+    public function trash()
+    {
+        $photo = public_path().$this->image->url;
+        if (is_file($photo))
+        {
+            @unlink($photo);
+            $this->image()->delete();
+        }
+        $this->delete();
+    }
 }

@@ -22,7 +22,7 @@
                     indexLabel: "{label} - {y}%",
                     dataPoints: [
                         @foreach($practice->options as $option)
-                        { y: '{{$practice->userPolls()->count() ? ($option->userPolls()->count() / $practice->userPolls()->count()) * 100 : 0}}', label: "{{$option->option}}" },
+                        { y: '{{$practice->userPractices()->count() ? ($option->userPractices()->count() / $practice->userPractices()->count()) * 100 : 0}}', label: "{{$option->option}}" },
                         @endforeach
                     ]
                 }]
@@ -66,7 +66,7 @@
                         <div class="panel-body">
                             <div class="col-lg-6">{{$option->option}}</div>
                             <div class="col-lg-6 text-right">
-                                {{$practice->userPolls()->count() ? '('.$option->userPolls()->count() .' users ) '.($option->userPolls()->count() / $practice->userPolls()->count()) * 100 : 0}}%
+                                {{$practice->userPractices()->count() ? '('.$option->userPractices()->count() .' users ) '.($option->userPractices()->count() / $practice->userPractices()->count()) * 100 : 0}}%
                             </div>
                         </div>
                     </div>
