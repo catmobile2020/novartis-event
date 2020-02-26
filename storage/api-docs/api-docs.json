@@ -14,6 +14,65 @@
         "http"
     ],
     "paths": {
+        "/agenda-rating": {
+            "get": {
+                "tags": [
+                    "agenda"
+                ],
+                "summary": "aganda rating questions",
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/agenda-rating/{rate_question}": {
+            "post": {
+                "tags": [
+                    "agenda"
+                ],
+                "summary": "submit your vot",
+                "parameters": [
+                    {
+                        "name": "rate_question",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "value",
+                        "in": "formData",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "options_ids[]",
+                        "in": "formData",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "multi",
+                        "uniqueItems": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "object"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
         "/auth/register": {
             "post": {
                 "tags": [

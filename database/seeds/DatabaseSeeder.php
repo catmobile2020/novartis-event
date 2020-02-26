@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(PollSeeder::class);
          $this->call(AgendaSeeder::class);
          $this->call(SettingSeeder::class);
+         $this->call(AgendaRateQuestion::class);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PracticeResource extends JsonResource
+class AgendaRateQuestionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,7 @@ class PracticeResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'has_rate'=>(boolean)$this->has_rate,
+            'type'=>$this->type,
             'options'=>OptionResource::collection($this->options),
             'created_at'=>$this->created_at->format('d-m-Y h:i A'),
         ];

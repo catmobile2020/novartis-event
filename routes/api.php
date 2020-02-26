@@ -31,6 +31,9 @@ Route::group(['namespace' => 'Api'] ,function (){
 
         Route::apiResource('/practices','PracticeController');
         Route::post('/practices/options/rating','PracticeController@optionRates');
+
+        Route::get('/agenda-rating','AgendaRateQuestionController@index');
+        Route::post('/agenda-rating/{rate_question}','AgendaRateQuestionController@submitRating');
     });
     Route::get('/setting','HomeController@setting');
 

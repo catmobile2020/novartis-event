@@ -116,6 +116,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(PracticeOptionRates::class);
     }
 
+    public function agendaRates()
+    {
+        return $this->hasMany(UserAgendaRates::class);
+    }
 
     public function routeNotificationForFcm() {
         return $this->device_token;

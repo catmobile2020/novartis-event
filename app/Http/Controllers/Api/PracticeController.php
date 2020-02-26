@@ -123,6 +123,12 @@ class PracticeController extends Controller
      */
     public function optionRates(PracticeOptionRate $request)
     {
+        $practice_option = PracticeOptions::find($request->practice_option_id);
+        $practice = $practice_option->practice;
+        if ($practice->has_rate == 0)
+        {
+            return $this->responseJson("You Can't Add Rate To This Question!",400);
+        }
         $user = auth()->user();
         if ($user->practiceOptions()->where('practice_options_id',$request->practice_option_id)->first())
         {

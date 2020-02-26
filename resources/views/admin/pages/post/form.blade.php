@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title','Practice')
+@section('title','Posts')
 
 @section('content')
     <div class="main-content">
         <!-- Breadcrumb -->
         <ol class="breadcrumb breadcrumb-2">
             <li><a href="{{route('admin.home')}}"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active"><strong>Practice</strong></li>
+            <li class="active"><strong>Posts</strong></li>
         </ol>
         <div class="row">
             <div class="col-lg-12">
@@ -34,37 +34,30 @@
                                     <h4>{{session()->get('message')}}</h4>
                                 </div>
                             @endif
-                        <form action="{{isset($practice->id) ? route('admin.practices.update',$practice->id) : route('admin.practices.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{isset($post->id) ? route('admin.posts.update',$post->id) : route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @isset($practice->id)
+                            @isset($post->id)
                                 @method('PUT')
                             @endisset
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="content">content</label>
+                                    <textarea name="content" rows="6" class="form-control" id="content" placeholder="Write Your Post">{{$post->content}}</textarea>
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="title">title</label>
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="title" value="{{$practice->title}}">
+                                    <label for="photo">Photo</label>
+                                    <input type="file" name="photo" class="form-control" id="photo">
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label for="email">Status</label>
-                                    <select class="form-control" name="active">
-                                        <option value="1" {{$practice->active ? 'selected' : ''}}>Active</option>
-                                        <option value="0" {{$practice->active ? '' : 'selected'}}>DisActive</option>
-                                    </select>
+                            @isset($post->id)
+                                <div class="col-lg-6">
+                                    <img src="{{$post->photo}}" style="height: 200px;width: auto">
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label for="has_rate">has rate</label>
-                                    <select class="form-control" name="has_rate">
-                                        <option value="1" {{$practice->has_rate ? 'selected' : ''}}>Yes</option>
-                                        <option value="0" {{$practice->has_rate ? '' : 'selected'}}>No</option>
-                                    </select>
-                                </div>
-                            </div>
+                            @endisset
                             <div class="col-sm-8 col-sm-offset-4">
-                                <a href="{{route('admin.practices.index')}}" class="btn btn-white">Cancel</a>
+                                <a href="{{route('admin.posts.index')}}" class="btn btn-white">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>

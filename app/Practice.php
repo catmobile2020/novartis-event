@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Practice extends Model
 {
-    protected $fillable =['title','active'];
+    protected $fillable =['title','active','has_rate'];
 
     public function scopeActive($q)
     {

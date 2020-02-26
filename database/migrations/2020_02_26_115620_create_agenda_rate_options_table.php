@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePracticesTable extends Migration
+class CreateAgendaRateOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePracticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('practices', function (Blueprint $table) {
+        Schema::create('agenda_rate_options', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->longText('title');
-            $table->boolean('active')->default(1);
-            $table->boolean('has_rate')->default(0);
+            $table->text('option');
+            $table->unsignedBigInteger('agenda_rate_questions_id')->index();
+            $table->foreign('agenda_rate_questions_id')->references('id')->on('agenda_rate_questions')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePracticesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practices');
+        Schema::dropIfExists('agenda_rate_options');
     }
 }

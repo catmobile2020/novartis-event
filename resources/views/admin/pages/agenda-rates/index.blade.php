@@ -1,22 +1,28 @@
 @extends('admin.layouts.master')
 
-@section('title','Posts')
+@section('title','Voting')
 
 @section('content')
     <div class="main-content">
-        <h1 class="page-title">Posts</h1>
+        <h1 class="page-title">Voting</h1>
         <!-- Breadcrumb -->
         <ol class="breadcrumb breadcrumb-2">
             <li><a href="{{route('admin.home')}}"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active"><strong>Posts</strong></li>
+            <li class="active"><strong>Voting</strong></li>
         </ol>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading clearfix">
-                        <a href="{{route('admin.posts.create')}}" class="btn btn-primary" style="float: right;">Add Post</a>
-                    </div>
                     <div class="panel-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @if (session()->has('message'))
                             <div class="alert alert-info">
                                <h4>{{session()->get('message')}}</h4>
@@ -27,9 +33,8 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>User Name</th>
-                                    <th>content</th>
-                                    <th>Photo</th>
+                                    <th>title</th>
+                                    <th>Rate</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -37,18 +42,19 @@
                                 @foreach($rows as $row)
                                     <tr class="gradeX">
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$row->user->name}}</td>
-                                        <td><a href="{{route('admin.posts.comments',$row->id)}}">{{$row->content}}</a></td>
+                                        <td><a href="{{route('admin.agenda-rating.show',$row->id)}}">{{$row->title}}</a></td>
                                         <td>
-                                            <img src="{{$row->photo}}" class="img-responsive" style="width: 200px"/>
+                                           @if ($row->type == 1)
+                                                {{$row->totalRate}}
+                                           @else
+                                                <a href="{{route('admin.agenda-rating.show',$row->id)}}">Click Here</a>
+                                           @endif
                                         </td>
                                         <td class="size-80">
                                             <div class="dropdown">
                                                 <a href="" data-toggle="dropdown" class="more-link"><i class="icon-dot-3 ellipsis-icon"></i></a>
                                                 <ul class="dropdown-menu dropdown-menu-right">
-{{--                                                    <li><a href="{{route('admin.posts.comments',$row->id)}}">Comments</a></li>--}}
-                                                    <li><a href="{{route('admin.posts.edit',$row->id)}}">Edit</a></li>
-                                                    <li><a href="{{route('admin.posts.destroy',$row->id)}}">Delete</a></li>
+                                                    <li><a href="{{route('admin.agenda-rating.show',$row->id)}}">Results</a></li>
                                                 </ul>
                                             </div>
                                         </td>

@@ -37,6 +37,11 @@
                 <i class="fa fa-pencil"></i><span class="title">Events</span>
             </a>
         </li>
+        <li class="{{Route::is('admin.agenda-rating.*') ? 'active' : ''}}">
+            <a href="{{route('admin.agenda-rating.index')}}">
+                <i class="fa fa-area-chart"></i><span class="title">Agenda Rating</span>
+            </a>
+        </li>
         <li class="{{Route::is('admin.posts.*') ? 'active' : ''}}">
             <a href="{{route('admin.posts.index')}}">
                 <i class="fa fa-book"></i><span class="title">Posts</span>
