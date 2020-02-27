@@ -34,6 +34,7 @@ Route::group(['namespace' => 'Api'] ,function (){
 
         Route::get('/agenda-rating','AgendaRateQuestionController@index');
         Route::post('/agenda-rating/{rate_question}','AgendaRateQuestionController@submitRating');
+        Route::post('/agenda-rating-by-string/{rate_question}','AgendaRateQuestionController@submitRatingByString');
     });
     Route::get('/setting','HomeController@setting');
 
